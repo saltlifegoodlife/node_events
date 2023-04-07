@@ -42,7 +42,7 @@ const server = createServer((req, res) => {
 server.listen(PORT, () => console.log("Server is listening at: " + PORT));
 
 NewsLetter.on("signup", (contact, res) => {
-  appendFile(path(__dirname, "./text.csv"), contact, (err) => {
+  appendFile(path.join(__dirname, "./text.csv"), contact, (err) => {
     if (err) {
       NewsLetter.emit("error", err, res);
       return;
